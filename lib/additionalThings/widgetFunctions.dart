@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tea_web/additionalThings/projectColors.dart';
 
 Widget buildBottomNavigationBar() {
   return Container(
     decoration: const BoxDecoration(
-      color: Color(0xFF51795e),
+      color: Color(secondColor),
     ),
-    height: 50,
+    height: 60,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
