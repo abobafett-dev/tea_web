@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tea_web/additionalThings/widgetFunctions.dart';
-
 import 'additionalThings/projectColors.dart';
+import 'shopPage.dart';
 
 void main() => runApp(const MyApp());
 
@@ -15,77 +14,88 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch(
           primarySwatch: primarySwatchMaterialColor,
-          // accentColor: Colors.red,
         ),
       ),
-      home: const MyHomePage(),
+      home: const mainPage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class mainPage extends StatefulWidget {
+  static PageRouteBuilder getRoute() {
+    return PageRouteBuilder(
+        transitionsBuilder: (_, animation, secondAnimation, child) {
+      return FadeTransition(
+        opacity: animation,
+        child: child,
+      );
+    }, pageBuilder: (_, __, ___) {
+      return mainPage();
+    });
+  }
+
+  const mainPage({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<mainPage> createState() => _mainPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _mainPageState extends State<mainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(toolbarHeight: 65, title: buildTitleAppBar()),
-      body: buildEmptyMainBody(),
-      bottomNavigationBar: buildBottomNavigationBar(),
+      appBar: AppBar(
+        toolbarHeight: 65,
+        title: buildTitleAppBarMainPage(context),
+        leading: IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.view_headline,
+              size: 35,
+            )),
+      ),
+      body: buildEmptyBodyMainPage(context),
+      bottomNavigationBar: buildBottomNavigationBar(context),
     );
   }
 }
 
-Widget buildTitleAppBar() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: [
-      IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.view_headline,
-            size: 35,
-          )),
-      Container(
-        height: 40,
-        width: 250,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: const [
-            BoxShadow(
-              color: Color(0xFF51635e),
-              spreadRadius: 3,
-            )
-          ],
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: const [
-            Text(
-              "Search shops",
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.w300,
-              ),
-            ),
-            Icon(
-              Icons.search,
-              size: 40,
-            )
-          ],
-        ),
+Widget buildTitleAppBarMainPage(BuildContext context) {
+  return Align(
+    alignment: Alignment.centerRight,
+    child: Container(
+      height: 40,
+      width: 250,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0xFF51635e),
+            spreadRadius: 3,
+          )
+        ],
       ),
-    ],
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: const [
+          Text(
+            "Search shops",
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.w300,
+            ),
+          ),
+          Icon(
+            Icons.search,
+            size: 40,
+          )
+        ],
+      ),
+    ),
   );
 }
 
-Widget buildEmptyMainBody() {
+Widget buildEmptyBodyMainPage(BuildContext context) {
   return SingleChildScrollView(
     scrollDirection: Axis.vertical,
     child: Column(
@@ -99,7 +109,8 @@ Widget buildEmptyMainBody() {
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
         ),
         Padding(
-          padding: EdgeInsets.only(right: 8.0, left: 8.0, top: 2.0, bottom: 2.0),
+          padding:
+              EdgeInsets.only(right: 8.0, left: 8.0, top: 2.0, bottom: 2.0),
           child: Divider(
             color: Colors.black,
             thickness: 1,
@@ -119,85 +130,98 @@ Widget buildEmptyMainBody() {
               ),
               child: Row(
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        bottomLeft: Radius.circular(20),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context, shopPage.getRoute());
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          bottomLeft: Radius.circular(20),
+                        ),
+                        color: firstColor,
+                        border: Border.all(
+                          width: 2,
+                          color: Color(secondColor),
+                        ),
                       ),
-                      color: firstColor,
-                      border: Border.all(
-                        width: 2,
-                        color: Color(secondColor),
-                      ),
+                      width: 100,
+                      height: 100,
+                      child: Image.asset("assets/images/Kantata_logo.png"),
                     ),
-                    width: 100,
-                    height: 100,
-                    child: Image.asset("assets/images/Kantata_logo.png"),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: firstColor,
-                      border: Border.all(
-                        width: 2,
-                        color: Color(secondColor),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context, shopPage.getRoute());
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: firstColor,
+                        border: Border.all(
+                          width: 2,
+                          color: Color(secondColor),
+                        ),
                       ),
+                      width: 100,
+                      height: 100,
+                      child: Image.asset("assets/images/Kantata_logo.png"),
                     ),
-                    width: 100,
-                    height: 100,
-                    child: Image.asset("assets/images/Kantata_logo.png"),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: firstColor,
-                      border: Border.all(
-                        width: 2,
-                        color: Color(secondColor),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context, shopPage.getRoute());
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: firstColor,
+                        border: Border.all(
+                          width: 2,
+                          color: Color(secondColor),
+                        ),
                       ),
+                      width: 100,
+                      height: 100,
+                      child: Image.asset("assets/images/Kantata_logo.png"),
                     ),
-                    width: 100,
-                    height: 100,
-                    child: Image.asset("assets/images/Kantata_logo.png"),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: firstColor,
-                      border: Border.all(
-                        width: 2,
-                        color: Color(secondColor),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context, shopPage.getRoute());
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: firstColor,
+                        border: Border.all(
+                          width: 2,
+                          color: Color(secondColor),
+                        ),
                       ),
+                      width: 100,
+                      height: 100,
+                      child: Image.asset("assets/images/Kantata_logo.png"),
                     ),
-                    width: 100,
-                    height: 100,
-                    child: Image.asset("assets/images/Kantata_logo.png"),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: firstColor,
-                      border: Border.all(
-                        width: 2,
-                        color: Color(secondColor),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context, shopPage.getRoute());
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(20),
+                          bottomRight: Radius.circular(20),
+                        ),
+                        color: firstColor,
+                        border: Border.all(
+                          width: 2,
+                          color: Color(secondColor),
+                        ),
                       ),
+                      width: 100,
+                      height: 100,
+                      child: Image.asset("assets/images/Kantata_logo.png"),
                     ),
-                    width: 100,
-                    height: 100,
-                    child: Image.asset("assets/images/Kantata_logo.png"),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(20),
-                        bottomRight: Radius.circular(20),
-                      ),
-                      color: firstColor,
-                      border: Border.all(
-                        width: 2,
-                        color: Color(secondColor),
-                      ),
-                    ),
-                    width: 100,
-                    height: 100,
-                    child: Image.asset("assets/images/Kantata_logo.png"),
                   ),
                 ],
               ),
@@ -212,7 +236,8 @@ Widget buildEmptyMainBody() {
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
         ),
         Padding(
-          padding: EdgeInsets.only(right: 8.0, left: 8.0, top: 2.0, bottom: 2.0),
+          padding:
+              EdgeInsets.only(right: 8.0, left: 8.0, top: 2.0, bottom: 2.0),
           child: Divider(
             color: Colors.black,
             thickness: 1,
@@ -232,85 +257,98 @@ Widget buildEmptyMainBody() {
               ),
               child: Row(
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        bottomLeft: Radius.circular(20),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context, shopPage.getRoute());
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          bottomLeft: Radius.circular(20),
+                        ),
+                        color: firstColor,
+                        border: Border.all(
+                          width: 2,
+                          color: Color(secondColor),
+                        ),
                       ),
-                      color: firstColor,
-                      border: Border.all(
-                        width: 2,
-                        color: Color(secondColor),
-                      ),
+                      width: 100,
+                      height: 100,
+                      child: Image.asset("assets/images/Kantata_logo.png"),
                     ),
-                    width: 100,
-                    height: 100,
-                    child: Image.asset("assets/images/Kantata_logo.png"),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: firstColor,
-                      border: Border.all(
-                        width: 2,
-                        color: Color(secondColor),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context, shopPage.getRoute());
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: firstColor,
+                        border: Border.all(
+                          width: 2,
+                          color: Color(secondColor),
+                        ),
                       ),
+                      width: 100,
+                      height: 100,
+                      child: Image.asset("assets/images/Kantata_logo.png"),
                     ),
-                    width: 100,
-                    height: 100,
-                    child: Image.asset("assets/images/Kantata_logo.png"),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: firstColor,
-                      border: Border.all(
-                        width: 2,
-                        color: Color(secondColor),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context, shopPage.getRoute());
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: firstColor,
+                        border: Border.all(
+                          width: 2,
+                          color: Color(secondColor),
+                        ),
                       ),
+                      width: 100,
+                      height: 100,
+                      child: Image.asset("assets/images/Kantata_logo.png"),
                     ),
-                    width: 100,
-                    height: 100,
-                    child: Image.asset("assets/images/Kantata_logo.png"),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: firstColor,
-                      border: Border.all(
-                        width: 2,
-                        color: Color(secondColor),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context, shopPage.getRoute());
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: firstColor,
+                        border: Border.all(
+                          width: 2,
+                          color: Color(secondColor),
+                        ),
                       ),
+                      width: 100,
+                      height: 100,
+                      child: Image.asset("assets/images/Kantata_logo.png"),
                     ),
-                    width: 100,
-                    height: 100,
-                    child: Image.asset("assets/images/Kantata_logo.png"),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: firstColor,
-                      border: Border.all(
-                        width: 2,
-                        color: Color(secondColor),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context, shopPage.getRoute());
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(20),
+                          bottomRight: Radius.circular(20),
+                        ),
+                        color: firstColor,
+                        border: Border.all(
+                          width: 2,
+                          color: Color(secondColor),
+                        ),
                       ),
+                      width: 100,
+                      height: 100,
+                      child: Image.asset("assets/images/Kantata_logo.png"),
                     ),
-                    width: 100,
-                    height: 100,
-                    child: Image.asset("assets/images/Kantata_logo.png"),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(20),
-                        bottomRight: Radius.circular(20),
-                      ),
-                      color: firstColor,
-                      border: Border.all(
-                        width: 2,
-                        color: Color(secondColor),
-                      ),
-                    ),
-                    width: 100,
-                    height: 100,
-                    child: Image.asset("assets/images/Kantata_logo.png"),
                   ),
                 ],
               ),
@@ -318,7 +356,8 @@ Widget buildEmptyMainBody() {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(right: 8.0, left: 8.0, top: 16.0, bottom: 4.0),
+          padding:
+              EdgeInsets.only(right: 8.0, left: 8.0, top: 16.0, bottom: 4.0),
           child: Divider(
             color: Colors.black,
             thickness: 1,
@@ -327,20 +366,29 @@ Widget buildEmptyMainBody() {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Icon(
-              Icons.account_circle,
-              color: Colors.black,
-              size: 90,
+            InkWell(
+              onTap: () {},
+              borderRadius: BorderRadius.circular(200),
+              child: Icon(
+                Icons.account_circle,
+                color: Colors.black,
+                size: 90,
+              ),
             ),
-            Icon(
-              Icons.help,
-              color: Colors.black,
-              size: 90,
+            InkWell(
+              onTap: () {},
+              borderRadius: BorderRadius.circular(200),
+              child: Icon(
+                Icons.help,
+                color: Colors.black,
+                size: 90,
+              ),
             ),
           ],
         ),
         Padding(
-          padding: EdgeInsets.only(right: 8.0, left: 8.0, top: 2.0, bottom: 2.0),
+          padding:
+              EdgeInsets.only(right: 8.0, left: 8.0, top: 2.0, bottom: 2.0),
           child: Divider(
             color: Colors.black,
             thickness: 1,

@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tea_web/additionalThings/projectColors.dart';
+import 'package:tea_web/mainPage.dart';
 
-Widget buildBottomNavigationBar() {
+Widget buildBottomNavigationBar(BuildContext context) {
   return Container(
     decoration: const BoxDecoration(
       color: Color(secondColor),
@@ -12,7 +13,9 @@ Widget buildBottomNavigationBar() {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, mainPage.getRoute());
+            },
             icon: const Icon(
               Icons.home_outlined,
               size: 40,
