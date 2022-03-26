@@ -148,7 +148,14 @@ Widget buildEmptyBodyMainPage(BuildContext context) {
                       ),
                       width: 100,
                       height: 100,
-                      child: Image.asset("assets/images/Kantata_logo.png"),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset(
+                          "assets/images/Kantata_logo.png",
+                          width: 10,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
                     ),
                   ),
                   InkWell(
@@ -165,7 +172,14 @@ Widget buildEmptyBodyMainPage(BuildContext context) {
                       ),
                       width: 100,
                       height: 100,
-                      child: Image.asset("assets/images/Kantata_logo.png"),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset(
+                          "assets/images/Kantata_logo.png",
+                          width: 10,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
                     ),
                   ),
                   InkWell(
@@ -182,7 +196,14 @@ Widget buildEmptyBodyMainPage(BuildContext context) {
                       ),
                       width: 100,
                       height: 100,
-                      child: Image.asset("assets/images/Kantata_logo.png"),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset(
+                          "assets/images/Kantata_logo.png",
+                          width: 10,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
                     ),
                   ),
                   InkWell(
@@ -199,7 +220,14 @@ Widget buildEmptyBodyMainPage(BuildContext context) {
                       ),
                       width: 100,
                       height: 100,
-                      child: Image.asset("assets/images/Kantata_logo.png"),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset(
+                          "assets/images/Kantata_logo.png",
+                          width: 10,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
                     ),
                   ),
                   InkWell(
@@ -220,7 +248,14 @@ Widget buildEmptyBodyMainPage(BuildContext context) {
                       ),
                       width: 100,
                       height: 100,
-                      child: Image.asset("assets/images/Kantata_logo.png"),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset(
+                          "assets/images/Kantata_logo.png",
+                          width: 10,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
                     ),
                   ),
                 ],
@@ -275,7 +310,14 @@ Widget buildEmptyBodyMainPage(BuildContext context) {
                       ),
                       width: 100,
                       height: 100,
-                      child: Image.asset("assets/images/Kantata_logo.png"),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset(
+                          "assets/images/Kantata_logo.png",
+                          width: 10,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
                     ),
                   ),
                   InkWell(
@@ -292,7 +334,14 @@ Widget buildEmptyBodyMainPage(BuildContext context) {
                       ),
                       width: 100,
                       height: 100,
-                      child: Image.asset("assets/images/Kantata_logo.png"),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset(
+                          "assets/images/Kantata_logo.png",
+                          width: 10,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
                     ),
                   ),
                   InkWell(
@@ -309,7 +358,14 @@ Widget buildEmptyBodyMainPage(BuildContext context) {
                       ),
                       width: 100,
                       height: 100,
-                      child: Image.asset("assets/images/Kantata_logo.png"),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset(
+                          "assets/images/Kantata_logo.png",
+                          width: 10,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
                     ),
                   ),
                   InkWell(
@@ -326,7 +382,14 @@ Widget buildEmptyBodyMainPage(BuildContext context) {
                       ),
                       width: 100,
                       height: 100,
-                      child: Image.asset("assets/images/Kantata_logo.png"),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset(
+                          "assets/images/Kantata_logo.png",
+                          width: 10,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
                     ),
                   ),
                   InkWell(
@@ -347,7 +410,14 @@ Widget buildEmptyBodyMainPage(BuildContext context) {
                       ),
                       width: 100,
                       height: 100,
-                      child: Image.asset("assets/images/Kantata_logo.png"),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset(
+                          "assets/images/Kantata_logo.png",
+                          width: 10,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
                     ),
                   ),
                 ],
