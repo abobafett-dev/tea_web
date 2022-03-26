@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tea_web/additionalThings/widgetFunctions.dart';
 
@@ -85,264 +86,267 @@ Widget buildTitleAppBar() {
 }
 
 Widget buildEmptyMainBody() {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: [
-      const SizedBox(
-        height: 40,
-      ),
-      const Text(
-        "Most popular",
-        style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
-      ),
-      Padding(
-        padding: EdgeInsets.only(right: 8.0, left: 8.0, top: 2.0, bottom: 2.0),
-        child: Divider(
-          color: Colors.black,
-          thickness: 1,
+  return SingleChildScrollView(
+    scrollDirection: Axis.vertical,
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        const SizedBox(
+          height: 40,
         ),
-      ),
-      SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(20),
-          child: Container(
-            decoration: BoxDecoration(
-              color: Color(secondColor),
-            ),
-            padding: EdgeInsets.only(
-              left: 1.0,
-              right: 1.0,
-            ),
-            child: Row(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      bottomLeft: Radius.circular(20),
-                    ),
-                    color: firstColor,
-                    border: Border.all(
-                      width: 2,
-                      color: Color(secondColor),
-                    ),
-                  ),
-                  width: 100,
-                  height: 100,
-                  child: Image.asset("assets/images/Kantata_logo.png"),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: firstColor,
-                    border: Border.all(
-                      width: 2,
-                      color: Color(secondColor),
-                    ),
-                  ),
-                  width: 100,
-                  height: 100,
-                  child: Image.asset("assets/images/Kantata_logo.png"),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: firstColor,
-                    border: Border.all(
-                      width: 2,
-                      color: Color(secondColor),
-                    ),
-                  ),
-                  width: 100,
-                  height: 100,
-                  child: Image.asset("assets/images/Kantata_logo.png"),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: firstColor,
-                    border: Border.all(
-                      width: 2,
-                      color: Color(secondColor),
-                    ),
-                  ),
-                  width: 100,
-                  height: 100,
-                  child: Image.asset("assets/images/Kantata_logo.png"),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: firstColor,
-                    border: Border.all(
-                      width: 2,
-                      color: Color(secondColor),
-                    ),
-                  ),
-                  width: 100,
-                  height: 100,
-                  child: Image.asset("assets/images/Kantata_logo.png"),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(20),
-                      bottomRight: Radius.circular(20),
-                    ),
-                    color: firstColor,
-                    border: Border.all(
-                      width: 2,
-                      color: Color(secondColor),
-                    ),
-                  ),
-                  width: 100,
-                  height: 100,
-                  child: Image.asset("assets/images/Kantata_logo.png"),
-                ),
-              ],
-            ),
-          ),
+        const Text(
+          "Most popular",
+          style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
         ),
-      ),
-      const SizedBox(
-        height: 20,
-      ),
-      Text(
-        "New",
-        style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
-      ),
-      Padding(
-        padding: EdgeInsets.only(right: 8.0, left: 8.0, top: 2.0, bottom: 2.0),
-        child: Divider(
-          color: Colors.black,
-          thickness: 1,
-        ),
-      ),
-      SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(20),
-          child: Container(
-            decoration: BoxDecoration(
-              color: Color(secondColor),
-            ),
-            padding: EdgeInsets.only(
-              left: 1.0,
-              right: 1.0,
-            ),
-            child: Row(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      bottomLeft: Radius.circular(20),
-                    ),
-                    color: firstColor,
-                    border: Border.all(
-                      width: 2,
-                      color: Color(secondColor),
-                    ),
-                  ),
-                  width: 100,
-                  height: 100,
-                  child: Image.asset("assets/images/Kantata_logo.png"),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: firstColor,
-                    border: Border.all(
-                      width: 2,
-                      color: Color(secondColor),
-                    ),
-                  ),
-                  width: 100,
-                  height: 100,
-                  child: Image.asset("assets/images/Kantata_logo.png"),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: firstColor,
-                    border: Border.all(
-                      width: 2,
-                      color: Color(secondColor),
-                    ),
-                  ),
-                  width: 100,
-                  height: 100,
-                  child: Image.asset("assets/images/Kantata_logo.png"),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: firstColor,
-                    border: Border.all(
-                      width: 2,
-                      color: Color(secondColor),
-                    ),
-                  ),
-                  width: 100,
-                  height: 100,
-                  child: Image.asset("assets/images/Kantata_logo.png"),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: firstColor,
-                    border: Border.all(
-                      width: 2,
-                      color: Color(secondColor),
-                    ),
-                  ),
-                  width: 100,
-                  height: 100,
-                  child: Image.asset("assets/images/Kantata_logo.png"),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(20),
-                      bottomRight: Radius.circular(20),
-                    ),
-                    color: firstColor,
-                    border: Border.all(
-                      width: 2,
-                      color: Color(secondColor),
-                    ),
-                  ),
-                  width: 100,
-                  height: 100,
-                  child: Image.asset("assets/images/Kantata_logo.png"),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-      Padding(
-        padding: EdgeInsets.only(right: 8.0, left: 8.0, top: 16.0, bottom: 4.0),
-        child: Divider(
-          color: Colors.black,
-          thickness: 1,
-        ),
-      ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Icon(
-            Icons.account_circle,
+        Padding(
+          padding: EdgeInsets.only(right: 8.0, left: 8.0, top: 2.0, bottom: 2.0),
+          child: Divider(
             color: Colors.black,
-            size: 90,
+            thickness: 1,
           ),
-          Icon(
-            Icons.help,
-            color: Colors.black,
-            size: 90,
-          ),
-        ],
-      ),
-      Padding(
-        padding: EdgeInsets.only(right: 8.0, left: 8.0, top: 2.0, bottom: 2.0),
-        child: Divider(
-          color: Colors.black,
-          thickness: 1,
         ),
-      ),
-    ],
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Color(secondColor),
+              ),
+              padding: EdgeInsets.only(
+                left: 1.0,
+                right: 1.0,
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        bottomLeft: Radius.circular(20),
+                      ),
+                      color: firstColor,
+                      border: Border.all(
+                        width: 2,
+                        color: Color(secondColor),
+                      ),
+                    ),
+                    width: 100,
+                    height: 100,
+                    child: Image.asset("assets/images/Kantata_logo.png"),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: firstColor,
+                      border: Border.all(
+                        width: 2,
+                        color: Color(secondColor),
+                      ),
+                    ),
+                    width: 100,
+                    height: 100,
+                    child: Image.asset("assets/images/Kantata_logo.png"),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: firstColor,
+                      border: Border.all(
+                        width: 2,
+                        color: Color(secondColor),
+                      ),
+                    ),
+                    width: 100,
+                    height: 100,
+                    child: Image.asset("assets/images/Kantata_logo.png"),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: firstColor,
+                      border: Border.all(
+                        width: 2,
+                        color: Color(secondColor),
+                      ),
+                    ),
+                    width: 100,
+                    height: 100,
+                    child: Image.asset("assets/images/Kantata_logo.png"),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: firstColor,
+                      border: Border.all(
+                        width: 2,
+                        color: Color(secondColor),
+                      ),
+                    ),
+                    width: 100,
+                    height: 100,
+                    child: Image.asset("assets/images/Kantata_logo.png"),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(20),
+                        bottomRight: Radius.circular(20),
+                      ),
+                      color: firstColor,
+                      border: Border.all(
+                        width: 2,
+                        color: Color(secondColor),
+                      ),
+                    ),
+                    width: 100,
+                    height: 100,
+                    child: Image.asset("assets/images/Kantata_logo.png"),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Text(
+          "New",
+          style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
+        ),
+        Padding(
+          padding: EdgeInsets.only(right: 8.0, left: 8.0, top: 2.0, bottom: 2.0),
+          child: Divider(
+            color: Colors.black,
+            thickness: 1,
+          ),
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Color(secondColor),
+              ),
+              padding: EdgeInsets.only(
+                left: 1.0,
+                right: 1.0,
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        bottomLeft: Radius.circular(20),
+                      ),
+                      color: firstColor,
+                      border: Border.all(
+                        width: 2,
+                        color: Color(secondColor),
+                      ),
+                    ),
+                    width: 100,
+                    height: 100,
+                    child: Image.asset("assets/images/Kantata_logo.png"),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: firstColor,
+                      border: Border.all(
+                        width: 2,
+                        color: Color(secondColor),
+                      ),
+                    ),
+                    width: 100,
+                    height: 100,
+                    child: Image.asset("assets/images/Kantata_logo.png"),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: firstColor,
+                      border: Border.all(
+                        width: 2,
+                        color: Color(secondColor),
+                      ),
+                    ),
+                    width: 100,
+                    height: 100,
+                    child: Image.asset("assets/images/Kantata_logo.png"),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: firstColor,
+                      border: Border.all(
+                        width: 2,
+                        color: Color(secondColor),
+                      ),
+                    ),
+                    width: 100,
+                    height: 100,
+                    child: Image.asset("assets/images/Kantata_logo.png"),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: firstColor,
+                      border: Border.all(
+                        width: 2,
+                        color: Color(secondColor),
+                      ),
+                    ),
+                    width: 100,
+                    height: 100,
+                    child: Image.asset("assets/images/Kantata_logo.png"),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(20),
+                        bottomRight: Radius.circular(20),
+                      ),
+                      color: firstColor,
+                      border: Border.all(
+                        width: 2,
+                        color: Color(secondColor),
+                      ),
+                    ),
+                    width: 100,
+                    height: 100,
+                    child: Image.asset("assets/images/Kantata_logo.png"),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(right: 8.0, left: 8.0, top: 16.0, bottom: 4.0),
+          child: Divider(
+            color: Colors.black,
+            thickness: 1,
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Icon(
+              Icons.account_circle,
+              color: Colors.black,
+              size: 90,
+            ),
+            Icon(
+              Icons.help,
+              color: Colors.black,
+              size: 90,
+            ),
+          ],
+        ),
+        Padding(
+          padding: EdgeInsets.only(right: 8.0, left: 8.0, top: 2.0, bottom: 2.0),
+          child: Divider(
+            color: Colors.black,
+            thickness: 1,
+          ),
+        ),
+      ],
+    ),
   );
 }
