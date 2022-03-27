@@ -394,10 +394,10 @@ Widget buildEmptyBodyShopPage(BuildContext context) {
                         style: TextStyle(fontSize: 18),
                       ),
                       decoration: BoxDecoration(
-                          color: Color(0xFF7a925c),
+                          color: Color(0xFF52958B),
                           border: Border.all(
-                            color: Color(0xFF62754a),
-                            width: 1,
+                            color: Colors.grey,
+                            width: 0.5,
                           )),
                       width: MediaQuery.of(context).size.width,
                     ),
@@ -407,10 +407,10 @@ Widget buildEmptyBodyShopPage(BuildContext context) {
                         style: TextStyle(fontSize: 18),
                       ),
                       decoration: BoxDecoration(
-                          color: Color(0xFF7a925c),
+                          color: Color(0xFF52958B),
                           border: Border.all(
-                            color: Color(0xFF62754a),
-                            width: 1,
+                            color: Colors.grey,
+                            width: 0.5,
                           )),
                       width: MediaQuery.of(context).size.width,
                     ),
@@ -420,10 +420,10 @@ Widget buildEmptyBodyShopPage(BuildContext context) {
                         style: TextStyle(fontSize: 18),
                       ),
                       decoration: BoxDecoration(
-                          color: Color(0xFF7a925c),
+                          color: Color(0xFF52958B),
                           border: Border.all(
-                            color: Color(0xFF62754a),
-                            width: 1,
+                            color: Colors.grey,
+                            width: 0.5,
                           )),
                       width: MediaQuery.of(context).size.width,
                     ),
@@ -433,10 +433,10 @@ Widget buildEmptyBodyShopPage(BuildContext context) {
                         style: TextStyle(fontSize: 18),
                       ),
                       decoration: BoxDecoration(
-                          color: Color(0xFF7a925c),
+                          color: Color(0xFF52958B),
                           border: Border.all(
-                            color: Color(0xFF62754a),
-                            width: 1,
+                            color: Colors.grey,
+                            width: 0.5,
                           )),
                       width: MediaQuery.of(context).size.width,
                     ),
@@ -446,10 +446,10 @@ Widget buildEmptyBodyShopPage(BuildContext context) {
                         style: TextStyle(fontSize: 18),
                       ),
                       decoration: BoxDecoration(
-                          color: Color(0xFF7a925c),
+                          color: Color(0xFF52958B),
                           border: Border.all(
-                            color: Color(0xFF62754a),
-                            width: 1,
+                            color: Colors.grey,
+                            width: 0.5,
                           )),
                       width: MediaQuery.of(context).size.width,
                     ),
@@ -459,49 +459,10 @@ Widget buildEmptyBodyShopPage(BuildContext context) {
                         style: TextStyle(fontSize: 18),
                       ),
                       decoration: BoxDecoration(
-                          color: Color(0xFF7a925c),
+                          color: Color(0xFF52958B),
                           border: Border.all(
-                            color: Color(0xFF62754a),
-                            width: 1,
-                          )),
-                      width: MediaQuery.of(context).size.width,
-                    ),
-                    Container(
-                      child: Text(
-                        "st. 50 years of October, 14",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      decoration: BoxDecoration(
-                          color: Color(0xFF7a925c),
-                          border: Border.all(
-                            color: Color(0xFF62754a),
-                            width: 1,
-                          )),
-                      width: MediaQuery.of(context).size.width,
-                    ),
-                    Container(
-                      child: Text(
-                        "st. 50 years of October, 14",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      decoration: BoxDecoration(
-                          color: Color(0xFF7a925c),
-                          border: Border.all(
-                            color: Color(0xFF62754a),
-                            width: 1,
-                          )),
-                      width: MediaQuery.of(context).size.width,
-                    ),
-                    Container(
-                      child: Text(
-                        "st. 50 years of October, 14",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      decoration: BoxDecoration(
-                          color: Color(0xFF7a925c),
-                          border: Border.all(
-                            color: Color(0xFF62754a),
-                            width: 1,
+                            color: Colors.grey,
+                            width: 0.5,
                           )),
                       width: MediaQuery.of(context).size.width,
                     ),
