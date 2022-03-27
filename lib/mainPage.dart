@@ -151,7 +151,7 @@ Widget buildEmptyBodyMainPage(BuildContext context) {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Image.asset(
-                          "assets/images/Kantata_logo.png",
+                          "assets/images/shop_logo_example.png",
                           width: 10,
                           fit: BoxFit.contain,
                         ),
@@ -175,7 +175,7 @@ Widget buildEmptyBodyMainPage(BuildContext context) {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Image.asset(
-                          "assets/images/Kantata_logo.png",
+                          "assets/images/shop_logo_example.png",
                           width: 10,
                           fit: BoxFit.contain,
                         ),
@@ -199,7 +199,7 @@ Widget buildEmptyBodyMainPage(BuildContext context) {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Image.asset(
-                          "assets/images/Kantata_logo.png",
+                          "assets/images/shop_logo_example.png",
                           width: 10,
                           fit: BoxFit.contain,
                         ),
@@ -223,7 +223,7 @@ Widget buildEmptyBodyMainPage(BuildContext context) {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Image.asset(
-                          "assets/images/Kantata_logo.png",
+                          "assets/images/shop_logo_example.png",
                           width: 10,
                           fit: BoxFit.contain,
                         ),
@@ -251,7 +251,7 @@ Widget buildEmptyBodyMainPage(BuildContext context) {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Image.asset(
-                          "assets/images/Kantata_logo.png",
+                          "assets/images/shop_logo_example.png",
                           width: 10,
                           fit: BoxFit.contain,
                         ),
@@ -313,7 +313,7 @@ Widget buildEmptyBodyMainPage(BuildContext context) {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Image.asset(
-                          "assets/images/Kantata_logo.png",
+                          "assets/images/shop_logo_example.png",
                           width: 10,
                           fit: BoxFit.contain,
                         ),
@@ -337,7 +337,7 @@ Widget buildEmptyBodyMainPage(BuildContext context) {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Image.asset(
-                          "assets/images/Kantata_logo.png",
+                          "assets/images/shop_logo_example.png",
                           width: 10,
                           fit: BoxFit.contain,
                         ),
@@ -361,7 +361,7 @@ Widget buildEmptyBodyMainPage(BuildContext context) {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Image.asset(
-                          "assets/images/Kantata_logo.png",
+                          "assets/images/shop_logo_example.png",
                           width: 10,
                           fit: BoxFit.contain,
                         ),
@@ -385,7 +385,7 @@ Widget buildEmptyBodyMainPage(BuildContext context) {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Image.asset(
-                          "assets/images/Kantata_logo.png",
+                          "assets/images/shop_logo_example.png",
                           width: 10,
                           fit: BoxFit.contain,
                         ),
@@ -413,7 +413,7 @@ Widget buildEmptyBodyMainPage(BuildContext context) {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Image.asset(
-                          "assets/images/Kantata_logo.png",
+                          "assets/images/shop_logo_example.png",
                           width: 10,
                           fit: BoxFit.contain,
                         ),

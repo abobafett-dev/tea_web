@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tea_web/productPage.dart';
 import 'additionalThings/projectColors.dart';
 import 'additionalThings/widgetFunctions.dart';
 import 'package:tea_web/mainPage.dart';
+import 'package:tea_web/catalogPage.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -66,88 +68,95 @@ Widget buildEmptyBodyShopPage(BuildContext context) {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
+          Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(32.0),
-                child: Image.asset(
-                  "assets/images/Kantata_logo.png",
-                  width: 150,
-                  fit: BoxFit.contain,
-                ),
-              ),
-              Container(
-                height: 150,
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  child: Column(
-                    children: [
-                      Text("___________________"),
-                      Text(
-                        "+7 (982) 961-05-90",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text(
-                        "www.cantata.ru",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text(
-                        "vk.com/cantata",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text(
-                        "+7 (982) 961-05-90",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text(
-                        "www.cantata.ru",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text(
-                        "vk.com/cantata",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text(
-                        "+7 (982) 961-05-90",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text(
-                        "www.cantata.ru",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text(
-                        "vk.com/cantata",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text(
-                        "+7 (982) 961-05-90",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text(
-                        "www.cantata.ru",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text(
-                        "vk.com/cantata",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text(
-                        "+7 (982) 961-05-90",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text(
-                        "www.cantata.ru",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text(
-                        "vk.com/cantata",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text("___________________"),
-                    ],
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(32.0),
+                    child: Image.asset(
+                      "assets/images/shop_logo_example.png",
+                      width: 150,
+                      fit: BoxFit.contain,
+                    ),
                   ),
-                ),
+                  Container(
+                    height: 150,
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      child: Column(
+                        children: [
+                          Text("___________________"),
+                          Text(
+                            "+7 (982) 961-05-90",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          Text(
+                            "www.cantata.ru",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          Text(
+                            "vk.com/cantata",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          Text(
+                            "+7 (982) 961-05-90",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          Text(
+                            "www.cantata.ru",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          Text(
+                            "vk.com/cantata",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          Text(
+                            "+7 (982) 961-05-90",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          Text(
+                            "www.cantata.ru",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          Text(
+                            "vk.com/cantata",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          Text(
+                            "+7 (982) 961-05-90",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          Text(
+                            "www.cantata.ru",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          Text(
+                            "vk.com/cantata",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          Text(
+                            "+7 (982) 961-05-90",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          Text(
+                            "www.cantata.ru",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          Text(
+                            "vk.com/cantata",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          Text("___________________"),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
+              ElevatedButton(onPressed: (){
+                Navigator.push(context, catalogPage.getRoute());
+              }, child: Text("Open web")),
             ],
           ),
           Padding(
@@ -199,7 +208,7 @@ Widget buildEmptyBodyShopPage(BuildContext context) {
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.push(context, shopPage.getRoute());
+                      Navigator.push(context, productPage.getRoute());
                     },
                     child: Container(
                       decoration: BoxDecoration(
@@ -231,7 +240,7 @@ Widget buildEmptyBodyShopPage(BuildContext context) {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context, shopPage.getRoute());
+                      Navigator.push(context, productPage.getRoute());
                     },
                     child: Container(
                       decoration: BoxDecoration(
@@ -263,7 +272,7 @@ Widget buildEmptyBodyShopPage(BuildContext context) {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context, shopPage.getRoute());
+                      Navigator.push(context, productPage.getRoute());
                     },
                     child: Container(
                       decoration: BoxDecoration(
@@ -295,7 +304,7 @@ Widget buildEmptyBodyShopPage(BuildContext context) {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context, shopPage.getRoute());
+                      Navigator.push(context, productPage.getRoute());
                     },
                     child: Container(
                       decoration: BoxDecoration(
@@ -327,7 +336,7 @@ Widget buildEmptyBodyShopPage(BuildContext context) {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context, shopPage.getRoute());
+                      Navigator.push(context, productPage.getRoute());
                     },
                     child: Container(
                       decoration: BoxDecoration(
@@ -372,69 +381,133 @@ Widget buildEmptyBodyShopPage(BuildContext context) {
               ),
             ),
           ),
-          SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Container(
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Container(
                 child: Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0,right: 8.0,),
-                      child: Container(
-                        child: Text(
-                          "st. 50 years of October, 14",
-                          style: TextStyle(fontSize: 18),
-                        ),
-                        decoration: BoxDecoration(
-                            color: Color(0xFF7a925c),
-                            border: Border.all(color: Color(0xFF62754a),width: 1,)
-                        ),
-                        width: MediaQuery.of(context).size.width,
+                    Container(
+                      child: Text(
+                        "st. 50 years of October, 14",
+                        style: TextStyle(fontSize: 18),
                       ),
+                      decoration: BoxDecoration(
+                          color: Color(0xFF7a925c),
+                          border: Border.all(
+                            color: Color(0xFF62754a),
+                            width: 1,
+                          )),
+                      width: MediaQuery.of(context).size.width,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0,right: 8.0,),
-                      child: Container(
-                        child: Text(
-                          "st. 50 years of October, 14",
-                          style: TextStyle(fontSize: 18),
-                        ),
-                        decoration: BoxDecoration(
-                            color: Color(0xFF7a925c),
-                            border: Border.all(color: Color(0xFF62754a),width: 1,)
-                        ),
-                        width: MediaQuery.of(context).size.width,
+                    Container(
+                      child: Text(
+                        "st. 50 years of October, 14",
+                        style: TextStyle(fontSize: 18),
                       ),
+                      decoration: BoxDecoration(
+                          color: Color(0xFF7a925c),
+                          border: Border.all(
+                            color: Color(0xFF62754a),
+                            width: 1,
+                          )),
+                      width: MediaQuery.of(context).size.width,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0,right: 8.0,),
-                      child: Container(
-                        child: Text(
-                          "st. 50 years of October, 14",
-                          style: TextStyle(fontSize: 18),
-                        ),
-                        decoration: BoxDecoration(
-                            color: Color(0xFF7a925c),
-                            border: Border.all(color: Color(0xFF62754a),width: 1,)
-                        ),
-                        width: MediaQuery.of(context).size.width,
+                    Container(
+                      child: Text(
+                        "st. 50 years of October, 14",
+                        style: TextStyle(fontSize: 18),
                       ),
+                      decoration: BoxDecoration(
+                          color: Color(0xFF7a925c),
+                          border: Border.all(
+                            color: Color(0xFF62754a),
+                            width: 1,
+                          )),
+                      width: MediaQuery.of(context).size.width,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0,right: 8.0,),
-                      child: Container(
-                        child: Text(
-                          "st. 50 years of October, 14",
-                          style: TextStyle(fontSize: 18),
-                        ),
-                        decoration: BoxDecoration(
-                            color: Color(0xFF7a925c),
-                            border: Border.all(color: Color(0xFF62754a),width: 1,)
-                        ),
-                        width: MediaQuery.of(context).size.width,
+                    Container(
+                      child: Text(
+                        "st. 50 years of October, 14",
+                        style: TextStyle(fontSize: 18),
                       ),
+                      decoration: BoxDecoration(
+                          color: Color(0xFF7a925c),
+                          border: Border.all(
+                            color: Color(0xFF62754a),
+                            width: 1,
+                          )),
+                      width: MediaQuery.of(context).size.width,
+                    ),
+                    Container(
+                      child: Text(
+                        "st. 50 years of October, 14",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      decoration: BoxDecoration(
+                          color: Color(0xFF7a925c),
+                          border: Border.all(
+                            color: Color(0xFF62754a),
+                            width: 1,
+                          )),
+                      width: MediaQuery.of(context).size.width,
+                    ),
+                    Container(
+                      child: Text(
+                        "st. 50 years of October, 14",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      decoration: BoxDecoration(
+                          color: Color(0xFF7a925c),
+                          border: Border.all(
+                            color: Color(0xFF62754a),
+                            width: 1,
+                          )),
+                      width: MediaQuery.of(context).size.width,
+                    ),
+                    Container(
+                      child: Text(
+                        "st. 50 years of October, 14",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      decoration: BoxDecoration(
+                          color: Color(0xFF7a925c),
+                          border: Border.all(
+                            color: Color(0xFF62754a),
+                            width: 1,
+                          )),
+                      width: MediaQuery.of(context).size.width,
+                    ),
+                    Container(
+                      child: Text(
+                        "st. 50 years of October, 14",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      decoration: BoxDecoration(
+                          color: Color(0xFF7a925c),
+                          border: Border.all(
+                            color: Color(0xFF62754a),
+                            width: 1,
+                          )),
+                      width: MediaQuery.of(context).size.width,
+                    ),
+                    Container(
+                      child: Text(
+                        "st. 50 years of October, 14",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      decoration: BoxDecoration(
+                          color: Color(0xFF7a925c),
+                          border: Border.all(
+                            color: Color(0xFF62754a),
+                            width: 1,
+                          )),
+                      width: MediaQuery.of(context).size.width,
                     ),
                   ],
                 ),
+              ),
             ),
           ),
         ],
