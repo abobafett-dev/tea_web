@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:tea_web/dbEntities/dbFunctions.dart';
 import 'additionalThings/projectColors.dart';
 import 'additionalThings/widgetFunctions.dart';
 import 'package:tea_web/shopPage.dart';
 import 'package:tea_web/mainPage.dart';
 import 'package:tea_web/productPage.dart';
+
+import 'dbEntities/product.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -59,6 +62,7 @@ class _catalogPageState extends State<catalogPage> {
     );
   }
 }
+dbFunctions functions = new dbFunctions();
 
 Widget buildEmptyBodyShopPage(BuildContext context) {
   return Column(
@@ -67,6 +71,7 @@ Widget buildEmptyBodyShopPage(BuildContext context) {
     ],
   );
 }
+
 
 Widget buildBottomNavigationBarForCatalogPage(BuildContext context) {
   return Container(

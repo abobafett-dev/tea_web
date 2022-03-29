@@ -3,10 +3,18 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:tea_web/additionalThings/widgetFunctions.dart';
 import 'additionalThings/projectColors.dart';
+import 'dbEntities/dbFunctions.dart';
 import 'shopPage.dart';
 import 'catalogPage.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() => runApp(const MyApp());
+
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -46,6 +54,7 @@ class mainPage extends StatefulWidget {
 class _mainPageState extends State<mainPage> {
   bool isOpenedCategoriesMenu = false;
   bool isOpenedShopsMenu = false;
+  dbFunctions dbFuncs = dbFunctions();
 
   @override
   Widget build(BuildContext context) {
@@ -828,7 +837,9 @@ class _mainPageState extends State<mainPage> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               InkWell(
-                onTap: () {},
+                onTap: () {
+
+                },
                 borderRadius: BorderRadius.circular(200),
                 child: Icon(
                   Icons.account_circle,
@@ -860,3 +871,4 @@ class _mainPageState extends State<mainPage> {
     );
   }
 }
+
