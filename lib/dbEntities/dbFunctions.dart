@@ -68,4 +68,12 @@ class dbFunctions{
     });
     return prodIngr;
   }
+
+  getShopById(String id) async{
+    late shop newShop;
+    await FirebaseFirestore.instance.collection("shops").doc(id).get().then((value) => {
+      newShop = shop(value)
+    });
+    return newShop;
+  }
 }

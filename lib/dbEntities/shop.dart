@@ -17,6 +17,16 @@ class shop {
     _image = doc["image"];
   }
 
+  shop(DocumentSnapshot<Map<String, dynamic>> value){
+    _id=value.id;
+    _name=value.get("name");
+    _phone_number = value.get("phone_number");
+    _vk = value.get("vk");
+    _website = value.get("website");
+    _image = value.get("image");
+  }
+
+
   String get website => _website;
 
   set website(String value) {
