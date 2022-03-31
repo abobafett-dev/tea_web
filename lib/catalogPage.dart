@@ -5,6 +5,7 @@ import 'additionalThings/widgetFunctions.dart';
 import 'package:tea_web/shopPage.dart';
 import 'package:tea_web/mainPage.dart';
 import 'package:tea_web/productPage.dart';
+import 'package:tea_web/graph_example.dart';
 
 import 'dbEntities/product.dart';
 
@@ -61,17 +62,25 @@ class _catalogPageState extends State<catalogPage> {
       bottomNavigationBar: buildBottomNavigationBarForCatalogPage(context),
     );
   }
+
+  Widget buildEmptyBodyShopPage(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        Center(
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.push(context, LayerGraphPageFromJson.getRoute());
+              },
+            child: Text("example"),
+          ),
+        ),
+      ],
+    );
+  }
 }
+
 dbFunctions functions = new dbFunctions();
-
-Widget buildEmptyBodyShopPage(BuildContext context) {
-  return Column(
-    children: [
-      Container(),
-    ],
-  );
-}
-
 
 Widget buildBottomNavigationBarForCatalogPage(BuildContext context) {
   return Container(
@@ -99,7 +108,7 @@ Widget buildBottomNavigationBarForCatalogPage(BuildContext context) {
                   style: TextStyle(fontSize: 20),
                 ),
                 InkWell(
-                  onTap: (){
+                  onTap: () {
                     Navigator.push(context, productPage.getRoute());
                   },
                   child: Container(
