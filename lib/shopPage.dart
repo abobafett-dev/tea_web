@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:tea_web/dbEntities/dbFunctions.dart';
+import 'package:tea_web/dbEntities/ingidient.dart';
 import 'package:tea_web/productPage.dart';
 import 'additionalThings/projectColors.dart';
 import 'additionalThings/widgetFunctions.dart';
 import 'package:tea_web/mainPage.dart';
 import 'package:tea_web/catalogPage.dart';
 
+import 'dbEntities/product.dart';
 import 'dbEntities/shop.dart';
 
 class MyApp extends StatelessWidget {
@@ -64,28 +66,6 @@ class _shopPageState extends State<shopPage> {
 }
 
 Widget buildEmptyBodyShopPage(BuildContext context) {
-  //example for FutureBuilder and shop
-  dbFunctions functions = dbFunctions();
-  late shop _shop;
-  FutureBuilder( ///для обработки 1 магаза
-    future: functions.getShopById('fHB98eHLNQQrlU5rfuPa'), ///id Кантаты, по идее должно передаваться сюда при нажатии на выбранный где-то магаз.
-    builder: (context, snapshot){
-      if (snapshot.hasError) {
-        return Text('${snapshot.error}');
-      }
-
-      if (snapshot.connectionState == ConnectionState.done) {
-        _shop = snapshot.data as shop;
-        /// return то, что использует данные полученые из запроса, должно находится внутри Future Builder
-      }
-      return Center(
-          child: CircularProgressIndicator(
-            strokeWidth: 3,
-          ));
-    },
-  );
-
-
   return SingleChildScrollView(
     scrollDirection: Axis.vertical,
     child: Container(

@@ -9,6 +9,11 @@ class ingridient{
     _name = doc["name"];
   }
 
+  ingridient(DocumentSnapshot<Map<String, dynamic>> value){
+    _id=value.id;
+    _name=value.get("name");
+  }
+
   String get name => _name;
 
   set name(String value) {
