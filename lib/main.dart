@@ -838,7 +838,6 @@ class _mainPageState extends State<mainPage> {
             children: [
               InkWell(
                 onTap: () {
-
                 },
                 borderRadius: BorderRadius.circular(200),
                 child: Icon(

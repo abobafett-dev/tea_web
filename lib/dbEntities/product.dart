@@ -6,22 +6,31 @@ class product{
   late String _description;
   late String _image;
   late DocumentReference _category;
-  late DocumentReference _shop;
 
   product.fromDoc(QueryDocumentSnapshot doc){
     _id = doc.id;
     _name = doc["name"];
     _description = doc["description"];
     _category = doc["category"];
-    _shop = doc["shop"];
     _image = doc["image"];
   }
 
-  DocumentReference get shop => _shop;
-
-  set shop(DocumentReference value) {
-    _shop = value;
+  product(DocumentSnapshot<Map<String, dynamic>> value){
+    _id=value.id;
+    _name=value.get("name");
+    _description=value.get("description");
+    _category=value.get("category");
+    _image=value.get("image");
   }
+
+  product.ds(DocumentSnapshot<Object?> value){
+    _id=value.id;
+    _name=value.get("name");
+    _description=value.get("description");
+    _category=value.get("category");
+    _image=value.get("image");
+  }
+
 
   DocumentReference get category => _category;
 
