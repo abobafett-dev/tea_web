@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:tea_web/dbEntities/shop_location.dart';
 
 class shop {
   late String _id;
@@ -7,6 +8,7 @@ class shop {
   late String _vk;
   late String _website;
   late String _image;
+  List<shop_location>? _locations;
 
   shop.fromDoc(QueryDocumentSnapshot doc){
     _id = doc.id;
@@ -61,5 +63,11 @@ class shop {
 
   set image(String value) {
     _image = value;
+  }
+
+  List<shop_location>? get locations => _locations;
+
+  set locations(List<shop_location>? value) {
+    _locations = value;
   }
 }
