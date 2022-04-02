@@ -3,7 +3,7 @@ import 'package:tea_web/dbEntities/dbFunctions.dart';
 import 'additionalThings/projectColors.dart';
 import 'additionalThings/widgetFunctions.dart';
 import 'package:tea_web/shopPage.dart';
-import 'package:tea_web/mainPage.dart';
+import 'package:tea_web/main.dart';
 import 'package:tea_web/productPage.dart';
 import 'package:tea_web/graph_example.dart';
 

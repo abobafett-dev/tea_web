@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tea_web/additionalThings/projectColors.dart';
-import 'package:tea_web/mainPage.dart';
+import 'package:tea_web/main.dart';
 
 Widget buildBottomNavigationBar(BuildContext context) {
   return Container(
