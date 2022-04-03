@@ -9,7 +9,6 @@ class product{
   late String _image;
   late DocumentReference _category;
   List<ingridient>? _ingredients;
-  List<products_ingridients>? _prodIngredients;
 
   product.fromDoc(QueryDocumentSnapshot doc){
     _id = doc.id;
@@ -72,9 +71,4 @@ class product{
     _ingredients = value;
   }
 
-  List<products_ingridients>? get prodIngredients => _prodIngredients;
-
-  set prodIngredients(List<products_ingridients>? value) {
-    _prodIngredients = value;
-  }
 }
