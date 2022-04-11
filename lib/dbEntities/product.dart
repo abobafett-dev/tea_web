@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:tea_web/dbEntities/ingidient.dart';
+import 'package:tea_web/dbEntities/ingredient.dart';
 import 'package:tea_web/dbEntities/products_ingridients.dart';
 
 class product{
