@@ -175,7 +175,7 @@ class _productPageState extends State<productPage> {
                 child: Text("Открыть ${currentProduct[0].name} в сетке каталога"))),
         Padding(
           padding: const EdgeInsets.only(
-              bottom: 4.0, left: 16.0, right: 16.0),
+              bottom: 4.0, left: 16.0, right: 16.0, top: 16.0),
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(

@@ -234,7 +234,7 @@ class _shopPageState extends State<shopPage> {
           ],
         ),
         Padding(
-          padding: const EdgeInsets.only(bottom: 4.0, left: 16.0, right: 16.0),
+          padding: const EdgeInsets.only(bottom: 4.0, left: 16.0, right: 16.0, top: 16.0),
           child: Row(
             children: [
               Icon(
