@@ -24,11 +24,11 @@ class LayerGraphPageFromJson extends StatefulWidget {
   static PageRouteBuilder getRoute() {
     return PageRouteBuilder(
         transitionsBuilder: (_, animation, secondAnimation, child) {
-          return FadeTransition(
-            opacity: animation,
-            child: child,
-          );
-        }, pageBuilder: (_, __, ___) {
+      return FadeTransition(
+        opacity: animation,
+        child: child,
+      );
+    }, pageBuilder: (_, __, ___) {
       return LayerGraphPageFromJson();
     });
   }
@@ -40,7 +40,24 @@ class LayerGraphPageFromJson extends StatefulWidget {
 var builder = SugiyamaConfiguration();
 
 class _LayerGraphPageFromJsonState extends State<LayerGraphPageFromJson> {
-  var  json = {"edges":[{"from": "7045321", "to": "308264215"},
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(),
+        body: Container(
+            height: 500,
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.red,
+                width: 1,
+              ),
+            ),
+            child: buildGraphView()));
+  }
+
+  var json = {
+    "edges": [
+      {"from": "7045321", "to": "308264215"},
       {"from": "308264215", "to": "205893853"},
       {"from": "205893853", "to": "673966248"},
       {"from": "673966248", "to": "358204164"},
@@ -205,72 +222,69 @@ class _LayerGraphPageFromJsonState extends State<LayerGraphPageFromJson> {
     ]
   };
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(),
-        body: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Wrap(
-              children: [
-                Container(
-                  width: 100,
-                  child: TextFormField(
-                    initialValue: builder.nodeSeparation.toString(),
-                    decoration: InputDecoration(labelText: 'Node Separation'),
-                    onChanged: (text) {
-                      builder.nodeSeparation = int.tryParse(text) ?? 100;
-                      this.setState(() {});
-                    },
-                  ),
-                ),
-                Container(
-                  width: 100,
-                  child: TextFormField(
-                    initialValue: builder.levelSeparation.toString(),
-                    decoration: InputDecoration(labelText: 'Level Separation'),
-                    onChanged: (text) {
-                      builder.levelSeparation = int.tryParse(text) ?? 100;
-                      this.setState(() {});
-                    },
-                  ),
-                ),
-                Container(
-                  width: 100,
-                  child: TextFormField(
-                    initialValue: builder.orientation.toString(),
-                    decoration: InputDecoration(labelText: 'Orientation'),
-                    onChanged: (text) {
-                      builder.orientation = int.tryParse(text) ?? 100;
-                      this.setState(() {});
-                    },
-                  ),
-                ),
-              ],
-            ),
-            Expanded(
-              child: InteractiveViewer(
-                  constrained: false,
-                  boundaryMargin: EdgeInsets.all(100),
-                  minScale: 0.01,
-                  maxScale: 5.6,
-                  child: GraphView(
-                    graph: graph,
-                    algorithm: SugiyamaAlgorithm(builder),
-                    paint: Paint()
-                      ..color = Colors.green
-                      ..strokeWidth = 5
-                      ..style = PaintingStyle.stroke,
-                    builder: (Node node) {
-                      // I can decide what widget should be shown here based on the id
-                      var a = node.key!.value;
-                      return rectangleWidget(a, node);
-                    },
-                  )),
-            ),
-          ],
-        ));
+  Widget buildGraphView() {
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        // Wrap(
+        //   children: [
+        //     Container(
+        //       width: 100,
+        //       child: TextFormField(
+        //         initialValue: builder.nodeSeparation.toString(),
+        //         decoration: InputDecoration(labelText: 'Node Separation'),
+        //         onChanged: (text) {
+        //           builder.nodeSeparation = int.tryParse(text) ?? 100;
+        //           this.setState(() {});
+        //         },
+        //       ),
+        //     ),
+        //     Container(
+        //       width: 100,
+        //       child: TextFormField(
+        //         initialValue: builder.levelSeparation.toString(),
+        //         decoration: InputDecoration(labelText: 'Level Separation'),
+        //         onChanged: (text) {
+        //           builder.levelSeparation = int.tryParse(text) ?? 100;
+        //           this.setState(() {});
+        //         },
+        //       ),
+        //     ),
+        //     Container(
+        //       width: 100,
+        //       child: TextFormField(
+        //         initialValue: builder.orientation.toString(),
+        //         decoration: InputDecoration(labelText: 'Orientation'),
+        //         onChanged: (text) {
+        //           builder.orientation = int.tryParse(text) ?? 100;
+        //           this.setState(() {});
+        //         },
+        //       ),
+        //     ),
+        //   ],
+        // ),
+        Expanded(
+          child: InteractiveViewer(
+              constrained: false,
+              boundaryMargin: EdgeInsets.all(100),
+              minScale: 0.1,
+              maxScale: 5.6,
+              child: GraphView(
+                graph: graph,
+                algorithm: SugiyamaAlgorithm(builder),
+                paint: Paint()
+                  ..color = Colors.green
+                  ..strokeWidth = 10
+                  ..style = PaintingStyle.stroke,
+                builder: (Node node) {
+                  // I can decide what widget should be shown here based on the id
+                  var a = node.key!.value;
+                  return rectangleWidget(a, node);
+                },
+              )),
+        ),
+      ],
+    );
   }
 
   Widget rectangleWidget(String? a, Node node) {
@@ -281,21 +295,21 @@ class _LayerGraphPageFromJsonState extends State<LayerGraphPageFromJson> {
           print('clicked');
         },
         child: Container(
-            padding: EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(4),
-              boxShadow: [
-                BoxShadow(color: Colors.blue[100]!, spreadRadius: 1),
-              ],
-            ),
-            child: Image.asset("assets/images/product_image_example.png"),
-      ),
+          padding: EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(4),
+            boxShadow: [
+              BoxShadow(color: Colors.blue[100]!, spreadRadius: 1),
+            ],
+          ),
+          child: Image.asset("assets/images/product_image_example.png"),
+        ),
       ),
     );
   }
 
-  final Graph graph = Graph()
-    ..isTree = true;
+  final Graph graph = Graph()..isTree = true;
+
   @override
   void initState() {
     var edges = json['edges']!;
@@ -306,9 +320,8 @@ class _LayerGraphPageFromJsonState extends State<LayerGraphPageFromJson> {
     });
 
     builder
-      ..nodeSeparation = (15)
-      ..levelSeparation = (200)
+      ..nodeSeparation = (100)
+      ..levelSeparation = (100)
       ..orientation = SugiyamaConfiguration.ORIENTATION_TOP_BOTTOM;
   }
-
 }

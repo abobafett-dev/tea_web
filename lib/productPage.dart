@@ -58,6 +58,7 @@ class _productPageState extends State<productPage> {
 
   List<product> currentProduct = [];
   List<ingridient> currentIngredients = [];
+  Map<String, dynamic> currentInfoAboutShops = {};
 
   @override
   Widget build(BuildContext context) {
@@ -94,6 +95,15 @@ class _productPageState extends State<productPage> {
               ),
             ),
             buildFutureBuilderPartOfIngredients(),
+            Padding(
+              padding:
+              const EdgeInsets.only(bottom: 4.0, left: 16.0, right: 16.0),
+              child: Divider(
+                thickness: 1,
+                color: thirdColor,
+              ),
+            ),
+            buildFutureBuilderPartOfShops(),
           ],
         ),
       ),
@@ -271,6 +281,110 @@ class _productPageState extends State<productPage> {
               }),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildFutureBuilderPartOfShops() {
+    return FutureBuilder(
+        future: dbFuncs.getShopInfoByProduct(idProduct),
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return Center(child: Text("${snapshot.error}"));
+          }
+
+          if (snapshot.connectionState == ConnectionState.done) {
+            currentInfoAboutShops = {};
+            currentInfoAboutShops = snapshot.data! as Map<String, dynamic>;
+            return buildPartOfShops(currentInfoAboutShops);
+          }
+
+          return Center(
+            child: CircularProgressIndicator(
+              strokeWidth: 3,
+            ),
+          );
+        });
+  }
+
+  Widget buildPartOfShops(Map<String, dynamic> infoAboutShops) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16.0),
+      child: Center(
+        child: Container(
+          height: 140,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            shrinkWrap: true,
+            itemCount: infoAboutShops['shops'].length,
+            itemBuilder: (BuildContext context, int index) {
+              return SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Color(secondColor),
+                    ),
+                    padding: EdgeInsets.only(
+                      left: 1.0,
+                      right: 1.0,
+                    ),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 140,
+                          height: 140,
+                          child: ListTile(
+                            contentPadding: EdgeInsets.all(0),
+                            minVerticalPadding: 0,
+                            title: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context, shopPage.getRoute(infoAboutShops['shops'][index].id));
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: index == 0
+                                        ? Radius.circular(20)
+                                        : Radius.circular(0),
+                                    bottomLeft: index == 0
+                                        ? Radius.circular(20)
+                                        : Radius.circular(0),
+                                    topRight: index == infoAboutShops['shops'].length - 1
+                                        ? Radius.circular(20)
+                                        : Radius.circular(0),
+                                    bottomRight: index == infoAboutShops['shops'].length - 1
+                                        ? Radius.circular(20)
+                                        : Radius.circular(0),
+                                  ),
+                                  color: firstColor,
+                                  border: Border.all(
+                                    width: 2,
+                                    color: Color(secondColor),
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Image.asset(
+                                    "${infoAboutShops['shops'][index].image}",
+                                    width: 10,
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
         ),
       ),
     );
