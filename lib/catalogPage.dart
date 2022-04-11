@@ -80,14 +80,12 @@ class _catalogPageState extends State<catalogPage> {
   }
 }
 
-dbFunctions functions = new dbFunctions();
-
 Widget buildBottomNavigationBarForCatalogPage(BuildContext context) {
   return Container(
     decoration: const BoxDecoration(
       color: Color(secondColor),
     ),
-    height: 210,
+    height: 150,
     child: Column(
       children: [
         Container(
@@ -123,19 +121,19 @@ Widget buildBottomNavigationBarForCatalogPage(BuildContext context) {
             ),
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton(
-                onPressed: () {
-                  Navigator.push(context, mainPage.getRoute());
-                },
-                icon: const Icon(
-                  Icons.home_outlined,
-                  size: 40,
-                )),
-          ],
-        ),
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   children: [
+        //     IconButton(
+        //         onPressed: () {
+        //           Navigator.push(context, mainPage.getRoute());
+        //         },
+        //         icon: const Icon(
+        //           Icons.home_outlined,
+        //           size: 40,
+        //         )),
+        //   ],
+        // ),
       ],
     ),
   );

@@ -99,7 +99,7 @@ class _shopPageState extends State<shopPage> {
                   const EdgeInsets.only(bottom: 4.0, left: 16.0, right: 16.0),
               child: Divider(
                 thickness: 1,
-                color: Colors.white70,
+                color: thirdColor,
               ),
             ),
             Padding(
@@ -235,17 +235,20 @@ class _shopPageState extends State<shopPage> {
         ),
         Padding(
           padding: const EdgeInsets.only(bottom: 4.0, left: 16.0, right: 16.0, top: 16.0),
-          child: Row(
-            children: [
-              Icon(
-                Icons.star_border,
-                size: 40,
-              ),
-              Text(
-                "${currentShop[0].name}",
-                style: TextStyle(fontSize: 40, fontWeight: FontWeight.w600),
-              ),
-            ],
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                // Icon(
+                //   Icons.star_border,
+                //   size: 40,
+                // ),
+                Text(
+                  "${currentShop[0].name}",
+                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.w600),
+                ),
+              ],
+            ),
           ),
         ),
       ],

@@ -90,7 +90,7 @@ class _productPageState extends State<productPage> {
                   const EdgeInsets.only(bottom: 4.0, left: 16.0, right: 16.0),
               child: Divider(
                 thickness: 1,
-                color: Colors.white70,
+                color: thirdColor,
               ),
             ),
             buildFutureBuilderPartOfIngredients(),
@@ -180,10 +180,10 @@ class _productPageState extends State<productPage> {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                Icon(
-                  Icons.star_border,
-                  size: 20,
-                ),
+                // Icon(
+                //   Icons.star_border,
+                //   size: 20,
+                // ),
                 Text(
                   "${currentProduct[0].name}",
                   style: TextStyle(
@@ -198,7 +198,8 @@ class _productPageState extends State<productPage> {
           const EdgeInsets.only(bottom: 4.0, left: 16.0, right: 16.0),
           child: Divider(
             thickness: 1,
-            color: Colors.white70,
+            color: thirdColor
+            ,
           ),
         ),
         Padding(
