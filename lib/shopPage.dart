@@ -347,12 +347,11 @@ class _shopPageState extends State<shopPage> {
 
   Widget buildPartOfLocationsOfShops(List<shop_location> locationsOfShop) {
     return Padding(
-      padding: const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
+      padding: const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0, bottom: 8.0),
       child: Container(
-        height: locationsOfShop.length < 3
-            ? 20 * locationsOfShop.length.toDouble()
-            : 90,
+        height: locationsOfShop.length * 30,
         child: ListView.builder(
+            physics: new NeverScrollableScrollPhysics(),
             itemCount: locationsOfShop.length,
             itemBuilder: (BuildContext context, int index) {
               return Container(
