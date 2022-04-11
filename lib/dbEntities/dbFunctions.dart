@@ -10,7 +10,7 @@ import 'package:tea_web/dbEntities/shop.dart';
 import 'package:tea_web/dbEntities/shop_location.dart';
 
 import 'category.dart';
-import 'ingidient.dart';
+import 'ingredient.dart';
 
 class dbFunctions{
 
@@ -49,7 +49,7 @@ class dbFunctions{
   }
 
   ///Вывод всех категорий
-  getCategory() async{
+  getCategories() async{
     List<category> categories = [];
     await FirebaseFirestore.instance.collection("categories").get().then((value) => {
       value.docs.forEach((element) {
@@ -158,6 +158,15 @@ class dbFunctions{
       newShop = shop(value)
     });
     return newShop;
+  }
+
+  ///Вывод продукта по id
+  getProductById(String id) async{
+    late product newProduct;
+    await FirebaseFirestore.instance.collection("products").doc(id).get().then((value) => {
+      newProduct = product(value)
+    });
+    return newProduct;
   }
 
   ///Вывод списка ингредиентов в продукте

@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
 }
 
 class catalogPage extends StatefulWidget {
-  static PageRouteBuilder getRoute() {
+  static PageRouteBuilder getRoute(String idCategory, String idShop, String idProduct) {
     return PageRouteBuilder(
         transitionsBuilder: (_, animation, secondAnimation, child) {
       return FadeTransition(
@@ -54,7 +54,7 @@ class _catalogPageState extends State<catalogPage> {
         leading: IconButton(
             icon: Icon(Icons.arrow_back, color: Colors.white),
             onPressed: () {
-              Navigator.push(context, shopPage.getRoute());
+              Navigator.pop(context, true);
             }),
       ),
       backgroundColor: firstColor,
@@ -109,7 +109,7 @@ Widget buildBottomNavigationBarForCatalogPage(BuildContext context) {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(context, productPage.getRoute());
+                    Navigator.push(context, productPage.getRoute(""));
                   },
                   child: Container(
                     alignment: Alignment.bottomRight,
