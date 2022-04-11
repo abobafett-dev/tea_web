@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:tea_web/dbEntities/ingidient.dart';
+import 'package:tea_web/dbEntities/products_ingridients.dart';
 
 class product{
   late String _id;
@@ -6,6 +8,7 @@ class product{
   late String _description;
   late String _image;
   late DocumentReference _category;
+  List<ingridient>? _ingredients;
 
   product.fromDoc(QueryDocumentSnapshot doc){
     _id = doc.id;
@@ -61,4 +64,11 @@ class product{
   set image(String value) {
     _image = value;
   }
+
+  List<ingridient>? get ingredients => _ingredients;
+
+  set ingredients(List<ingridient>? value) {
+    _ingredients = value;
+  }
+
 }
