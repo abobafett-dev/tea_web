@@ -72,22 +72,29 @@ class _catalogPageState extends State<catalogPage> {
 
   var builder = FruchtermanReingoldAlgorithm(iterations: 1000);
 
-  final Graph graph = Graph()..isTree = true;
+  Graph graph = Graph()..isTree = true;
 
   dbFunctions dbFuncs = dbFunctions();
 
-  var relationshipsGraphExample = {
-    "edges": [
-      {"from": "7045321", "to": "308264215"},
-      {"from": "308264215", "to": "205893853"},
-      {"from": "205893853", "to": "7045321"},
-    ]
-  };
+  // var relationshipsGraphExample = {
+  //   "edges": [
+  //     {"from": "7045321", "to": "308264215"},
+  //     {"from": "308264215", "to": "205893853"},
+  //     {"from": "205893853", "to": "7045321"},
+  //   ]
+  // };
 
   var relationshipsGraph = {"edges": []};
 
+  Map<String, product> currentProducts = {};
+
+  String isFocusedProduct = "";
+
   @override
   Widget build(BuildContext context) {
+    if(filters[2] != ""){
+      isFocusedProduct = "DocumentReference<Map<String, dynamic>>(products/${filters[2]})";
+    }
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 65,
@@ -97,8 +104,17 @@ class _catalogPageState extends State<catalogPage> {
               Navigator.pop(context, true);
             }),
         title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text("Каталог"),
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: thirdColor,
+                ),
+                onPressed: () {
+                  setState(() {});
+                },
+                child: Icon(Icons.refresh)),
             // ElevatedButton(
             //   onPressed: () {
             //     Navigator.push(context, LayerGraphPageFromJson.getRoute());
@@ -113,7 +129,9 @@ class _catalogPageState extends State<catalogPage> {
       ),
       backgroundColor: firstColor,
       body: buildFutureBuilderPartOfGraph(filters),
-      // bottomNavigationBar: buildBottomNavigationBarForCatalogPage(context),
+      bottomNavigationBar: isFocusedProduct != ""
+          ? buildFutureBuilderPartOfBottomNavigationBarForCatalogPage(context)
+          : Container(height: 1,),
     );
   }
 
@@ -128,6 +146,44 @@ class _catalogPageState extends State<catalogPage> {
             }
 
             if (snapshot.connectionState == ConnectionState.done) {
+              var info = snapshot.data! as Map<String, dynamic>;
+              List mapToEdges = [];
+              bool wasBefore = false;
+              info['products_ingridients'].forEach((first_element) {
+                info['products_ingridients'].forEach((second_element) {
+                  if (first_element != second_element &&
+                      first_element.ingridient_id ==
+                          second_element.ingridient_id) {
+                    mapToEdges.forEach((element) {
+                      if ((element['from'] ==
+                                  first_element.product_id.toString() &&
+                              element['to'] ==
+                                  second_element.product_id.toString()) ||
+                          ((element['to'] ==
+                                  first_element.product_id.toString() &&
+                              element['from'] ==
+                                  second_element.product_id.toString()))) {
+                        wasBefore = true;
+                        return;
+                      }
+                    });
+                    if (wasBefore == false) {
+                      mapToEdges.add({
+                        "from": first_element.product_id.toString(),
+                        "to": second_element.product_id.toString()
+                      });
+                    }
+                    wasBefore = false;
+                  }
+                });
+              });
+              info['products'].forEach((element) {
+                currentProducts[
+                        "DocumentReference<Map<String, dynamic>>(products/${element.id})"] =
+                    element;
+              });
+              relationshipsGraph['edges'] = mapToEdges;
+              initState();
               return buildGraphView(context);
             }
 
@@ -149,6 +205,44 @@ class _catalogPageState extends State<catalogPage> {
             }
 
             if (snapshot.connectionState == ConnectionState.done) {
+              var info = snapshot.data! as Map<String, dynamic>;
+              List mapToEdges = [];
+              bool wasBefore = false;
+              info['products_ingridients'].forEach((first_element) {
+                info['products_ingridients'].forEach((second_element) {
+                  if (first_element != second_element &&
+                      first_element.ingridient_id ==
+                          second_element.ingridient_id) {
+                    mapToEdges.forEach((element) {
+                      if ((element['from'] ==
+                                  first_element.product_id.toString() &&
+                              element['to'] ==
+                                  second_element.product_id.toString()) ||
+                          ((element['to'] ==
+                                  first_element.product_id.toString() &&
+                              element['from'] ==
+                                  second_element.product_id.toString()))) {
+                        wasBefore = true;
+                        return;
+                      }
+                    });
+                    if (wasBefore == false) {
+                      mapToEdges.add({
+                        "from": first_element.product_id.toString(),
+                        "to": second_element.product_id.toString()
+                      });
+                    }
+                    wasBefore = false;
+                  }
+                });
+              });
+              info['products'].forEach((element) {
+                currentProducts[
+                        "DocumentReference<Map<String, dynamic>>(products/${element.id})"] =
+                    element;
+              });
+              relationshipsGraph['edges'] = mapToEdges;
+              initState();
               return buildGraphView(context);
             }
 
@@ -170,6 +264,44 @@ class _catalogPageState extends State<catalogPage> {
             }
 
             if (snapshot.connectionState == ConnectionState.done) {
+              var info = snapshot.data! as Map<String, dynamic>;
+              List mapToEdges = [];
+              bool wasBefore = false;
+              info['products_ingridients'].forEach((first_element) {
+                info['products_ingridients'].forEach((second_element) {
+                  if (first_element != second_element &&
+                      first_element.ingridient_id ==
+                          second_element.ingridient_id) {
+                    mapToEdges.forEach((element) {
+                      if ((element['from'] ==
+                                  first_element.product_id.toString() &&
+                              element['to'] ==
+                                  second_element.product_id.toString()) ||
+                          ((element['to'] ==
+                                  first_element.product_id.toString() &&
+                              element['from'] ==
+                                  second_element.product_id.toString()))) {
+                        wasBefore = true;
+                        return;
+                      }
+                    });
+                    if (wasBefore == false) {
+                      mapToEdges.add({
+                        "from": first_element.product_id.toString(),
+                        "to": second_element.product_id.toString()
+                      });
+                    }
+                    wasBefore = false;
+                  }
+                });
+              });
+              info['products'].forEach((element) {
+                currentProducts[
+                        "DocumentReference<Map<String, dynamic>>(products/${element.id})"] =
+                    element;
+              });
+              relationshipsGraph['edges'] = mapToEdges;
+              initState();
               return buildGraphView(context);
             }
 
@@ -184,67 +316,37 @@ class _catalogPageState extends State<catalogPage> {
     return Container();
   }
 
+  // int sortComparison(Map<String, dynamic> a, Map<String, dynamic> b){
+  //   if(a['from'] == b['from']){
+  //
+  //   }
+  // }
+
   Widget buildGraphView(BuildContext context) {
     return Container(
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          // Wrap(
-          //   children: [
-          //     Container(
-          //       width: 100,
-          //       child: TextFormField(
-          //         initialValue: builder.nodeSeparation.toString(),
-          //         decoration: InputDecoration(labelText: 'Node Separation'),
-          //         onChanged: (text) {
-          //           builder.nodeSeparation = int.tryParse(text) ?? 100;
-          //           this.setState(() {});
-          //         },
-          //       ),
-          //     ),
-          //     Container(
-          //       width: 100,
-          //       child: TextFormField(
-          //         initialValue: builder.levelSeparation.toString(),
-          //         decoration: InputDecoration(labelText: 'Level Separation'),
-          //         onChanged: (text) {
-          //           builder.levelSeparation = int.tryParse(text) ?? 100;
-          //           this.setState(() {});
-          //         },
-          //       ),
-          //     ),
-          //     Container(
-          //       width: 100,
-          //       child: TextFormField(
-          //         initialValue: builder.orientation.toString(),
-          //         decoration: InputDecoration(labelText: 'Orientation'),
-          //         onChanged: (text) {
-          //           builder.orientation = int.tryParse(text) ?? 100;
-          //           this.setState(() {});
-          //         },
-          //       ),
-          //     ),
-          //   ],
-          // ),
           Expanded(
             child: InteractiveViewer(
-                constrained: false,
-                boundaryMargin: EdgeInsets.all(100),
-                minScale: 0.1,
-                maxScale: 100,
-                child: GraphView(
-                  graph: graph,
-                  algorithm: builder,
-                  paint: Paint()
-                    ..color = secondColorColor
-                    ..strokeWidth = 1
-                    ..style = PaintingStyle.fill,
-                  builder: (Node node) {
-                    // I can decide what widget should be shown here based on the id
-                    var a = node.key!.value;
-                    return rectangleWidget(a, node);
-                  },
-                )),
+              constrained: false,
+              boundaryMargin: EdgeInsets.all(1000),
+              minScale: 0.0001,
+              maxScale: 10000,
+              child: GraphView(
+                graph: graph,
+                algorithm: builder,
+                paint: Paint()
+                  ..color = secondColorColor
+                  ..strokeWidth = 1
+                  ..style = PaintingStyle.fill,
+                builder: (Node node) {
+                  // I can decide what widget should be shown here based on the id
+                  var a = node.key!.value;
+                  return rectangleWidget(a, node);
+                },
+              ),
+            ),
           ),
         ],
       ),
@@ -252,30 +354,41 @@ class _catalogPageState extends State<catalogPage> {
   }
 
   Widget rectangleWidget(String? a, Node node) {
-    return Container(
-      color: Colors.amber,
-      child: InkWell(
-        onTap: () {
-          print('clicked');
-        },
-        child: Column(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(4),
-                boxShadow: [
-                  BoxShadow(color: thirdColor, spreadRadius: 1),
-                ],
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 450),
+      child: Container(
+        color: Colors.amber,
+        child: InkWell(
+          onTap: () {
+            isFocusedProduct = a!;
+            setState(() {});
+          },
+          child: Column(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4),
+                  boxShadow: [
+                    BoxShadow(
+                        color:
+                            isFocusedProduct == a ? Colors.orange : thirdColor,
+                        spreadRadius: 1),
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Container(
+                        child: Image.network(
+                      "${currentProducts[a]!.image}",
+                      height: isFocusedProduct == a ? 40 : 30,
+                      width: isFocusedProduct == a ? 40 : 30,
+                    )),
+                  ],
+                ),
               ),
-              child: Container(
-                  child: Image.asset(
-                "assets/images/product_image_example.png",
-                height: 50,
-                width: 50,
-              )),
-            ),
-            // Text("${a}"),
-          ],
+              // Text("${a}"),
+            ],
+          ),
         ),
       ),
     );
@@ -283,20 +396,50 @@ class _catalogPageState extends State<catalogPage> {
 
   @override
   void initState() {
-    var edges = relationshipsGraphExample['edges']!;
+    List edges = [];
+    // edges = relationshipsGraphExample['edges']!;
+    if (relationshipsGraph['edges']!.length > 0) {
+      edges = relationshipsGraph['edges']!;
+      graph = Graph()..isTree = true;
+    }
     edges.forEach((element) {
       var fromNodeId = element['from'];
       var toNodeId = element['to'];
       graph.addEdge(Node.Id(fromNodeId), Node.Id(toNodeId));
     });
-
-    // builder
-    //   ..nodeSeparation = (100)
-    //   ..levelSeparation = (100)
-    //   ..orientation = SugiyamaConfiguration.ORIENTATION_TOP_BOTTOM;
   }
 
-  Widget buildBottomNavigationBarForCatalogPage(BuildContext context) {
+  Widget buildFutureBuilderPartOfBottomNavigationBarForCatalogPage(
+      BuildContext context) {
+    String id_product = isFocusedProduct.substring(
+        isFocusedProduct.indexOf('/') + 1, isFocusedProduct.indexOf(')'));
+    return FutureBuilder(
+        future: dbFuncs.getProductById(id_product),
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return Center(child: Text("${snapshot.error}"));
+          }
+
+          if (snapshot.connectionState == ConnectionState.done) {
+            var currentProduct = snapshot.data! as product;
+            return buildBottomNavigationBarForCatalogPage(currentProduct);
+          }
+
+          return Center(
+            child: CircularProgressIndicator(
+              strokeWidth: 3,
+            ),
+          );
+        });
+    return Container();
+  }
+
+  Widget buildBottomNavigationBarForCatalogPage(product currentProduct) {
+    String ingredients = "";
+    for (var ingredient in currentProduct.ingredients!) {
+      ingredients += ingredient.name.toLowerCase() + ", ";
+    }
+    ingredients = ingredients.substring(0, ingredients.length - 2);
     return Container(
       decoration: const BoxDecoration(
         color: Color(secondColor),
@@ -310,30 +453,37 @@ class _catalogPageState extends State<catalogPage> {
             height: 150,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Oolong with mango",
-                    style: TextStyle(fontSize: 30),
-                  ),
-                  Text(
-                    "Ingredients: Tie Guan Yin oolong, Thai mango, flavoring",
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(context, productPage.getRoute(""));
-                    },
-                    child: Container(
-                      alignment: Alignment.bottomRight,
-                      child: Text(
-                        "Show more...",
-                        style: TextStyle(fontSize: 20),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "${currentProduct.name}",
+                      style: TextStyle(fontSize: 30),
+                    ),
+                    Text(
+                      "Ингредиенты: ${ingredients}",
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context, productPage.getRoute(currentProduct.id));
+                      },
+                      child: Container(
+                        alignment: Alignment.bottomRight,
+                        child: Text(
+                          "Show more...",
+                          style: TextStyle(fontSize: 20),
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
