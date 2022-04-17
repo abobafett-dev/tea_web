@@ -182,6 +182,9 @@ class _catalogPageState extends State<catalogPage> {
                         "DocumentReference<Map<String, dynamic>>(products/${element.id})"] =
                     element;
               });
+              mapToEdges.sort((a, b) {
+                return a['from'].compareTo(b['from']);
+              });
               relationshipsGraph['edges'] = mapToEdges;
               initState();
               return buildGraphView(context);
@@ -240,6 +243,9 @@ class _catalogPageState extends State<catalogPage> {
                 currentProducts[
                         "DocumentReference<Map<String, dynamic>>(products/${element.id})"] =
                     element;
+              });
+              mapToEdges.sort((a, b) {
+                return a['from'].compareTo(b['from']);
               });
               relationshipsGraph['edges'] = mapToEdges;
               initState();
@@ -300,6 +306,9 @@ class _catalogPageState extends State<catalogPage> {
                         "DocumentReference<Map<String, dynamic>>(products/${element.id})"] =
                     element;
               });
+              mapToEdges.sort((a, b) {
+                return a['from'].compareTo(b['from']);
+              });
               relationshipsGraph['edges'] = mapToEdges;
               initState();
               return buildGraphView(context);
@@ -316,12 +325,6 @@ class _catalogPageState extends State<catalogPage> {
     return Container();
   }
 
-  // int sortComparison(Map<String, dynamic> a, Map<String, dynamic> b){
-  //   if(a['from'] == b['from']){
-  //
-  //   }
-  // }
-
   Widget buildGraphView(BuildContext context) {
     return Container(
       child: Column(
@@ -330,7 +333,7 @@ class _catalogPageState extends State<catalogPage> {
           Expanded(
             child: InteractiveViewer(
               constrained: false,
-              boundaryMargin: EdgeInsets.all(1000),
+              boundaryMargin: EdgeInsets.all(20),
               minScale: 0.0001,
               maxScale: 10000,
               child: GraphView(
