@@ -92,7 +92,7 @@ class _catalogPageState extends State<catalogPage> {
 
   @override
   Widget build(BuildContext context) {
-    if(filters[2] != ""){
+    if(filters[2] != "" && isFocusedProduct == ""){
       isFocusedProduct = "DocumentReference<Map<String, dynamic>>(products/${filters[2]})";
     }
     return Scaffold(
