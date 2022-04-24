@@ -480,7 +480,7 @@ class _catalogPageState extends State<catalogPage> {
                       child: Container(
                         alignment: Alignment.bottomRight,
                         child: Text(
-                          "Show more...",
+                          "Открыть продукт...",
                           style: TextStyle(fontSize: 20),
                         ),
                       ),

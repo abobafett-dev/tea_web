@@ -59,6 +59,7 @@ class shopPage extends StatefulWidget {
 
 class _shopPageState extends State<shopPage> {
   String idShop;
+
   _shopPageState(this.idShop);
 
   dbFunctions dbFuncs = dbFunctions();
@@ -66,7 +67,6 @@ class _shopPageState extends State<shopPage> {
   List<shop> currentShop = [];
   List<product> popularProductsInShop = [];
   List<shop_location> locationsOfShop = [];
-
 
   @override
   Widget build(BuildContext context) {
@@ -181,45 +181,56 @@ class _shopPageState extends State<shopPage> {
                                 style: TextStyle(fontSize: 18),
                               )
                             : Container(),
-                        currentShop[0].website.isNotEmpty
-                            ? InkWell(
-                                onTap: () async {
-                                  String url = "${currentShop[0].website}";
-                                  if (await canLaunch(url)) {
-                                    await launch(url, forceWebView: true);
-                                  } else {
-                                    ScaffoldMessenger.of(context)
-                                        .showSnackBar(SnackBar(
-                                      content: Text('Не удалось открыть ${url}'),
-                                    ));
-                                  }
-                                },
-                                child: Icon(
-                                  Icons.language,
-                                  size: 50,
-                                ),
-                              )
-                            : Container(),
-                        currentShop[0].vk.isNotEmpty
-                            ? InkWell(
-                                onTap: () async {
-                                  String url = "${currentShop[0].vk}";
-                                  if (await canLaunch(url)) {
-                                    await launch(url, forceWebView: true);
-                                  } else {
-                                    ScaffoldMessenger.of(context)
-                                        .showSnackBar(SnackBar(
-                                      content: Text('Не удалось открыть ${url}'),
-                                    ));
-                                  }
-                                },
-                                child: Image.asset(
-                                  "assets/images/icon_vk.png",
-                                  height: 50,
-                                  width: 50,
-                                ),
-                              )
-                            : Container(),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            children: [
+                              currentShop[0].website.isNotEmpty
+                                  ? InkWell(
+                                      onTap: () async {
+                                        String url = "${currentShop[0].website}";
+                                        if (await canLaunch(url)) {
+                                          await launch(url, forceWebView: true);
+                                        } else {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(SnackBar(
+                                            content:
+                                                Text('Не удалось открыть ${url}'),
+                                          ));
+                                        }
+                                      },
+                                      child: Icon(
+                                        Icons.language,
+                                        size: 50,
+                                        color: secondColorColor,
+                                      ),
+                                    )
+                                  : Container(),
+                              currentShop[0].vk.isNotEmpty
+                                  ? InkWell(
+                                      onTap: () async {
+                                        String url = "${currentShop[0].vk}";
+                                        if (await canLaunch(url)) {
+                                          await launch(url, forceWebView: true);
+                                        } else {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(SnackBar(
+                                            content:
+                                                Text('Не удалось открыть ${url}'),
+                                          ));
+                                        }
+                                      },
+                                      child: Image.asset(
+                                        "assets/images/icon_vk.png",
+                                        height: 50,
+                                        width: 50,
+                                        color: secondColorColor,
+                                      ),
+                                    )
+                                  : Container(),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -234,7 +245,8 @@ class _shopPageState extends State<shopPage> {
           ],
         ),
         Padding(
-          padding: const EdgeInsets.only(bottom: 4.0, left: 16.0, right: 16.0, top: 16.0),
+          padding: const EdgeInsets.only(
+              bottom: 4.0, left: 16.0, right: 16.0, top: 16.0),
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -350,7 +362,8 @@ class _shopPageState extends State<shopPage> {
 
   Widget buildPartOfLocationsOfShops(List<shop_location> locationsOfShop) {
     return Padding(
-      padding: const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0, bottom: 8.0),
+      padding:
+          const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0, bottom: 8.0),
       child: Container(
         height: locationsOfShop.length * 30,
         child: ListView.builder(

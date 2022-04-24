@@ -1,4 +1,4 @@
-package com.example.tea_web
+package com.tea_web
 
 import io.flutter.embedding.android.FlutterActivity
 
